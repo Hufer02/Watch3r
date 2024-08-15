@@ -1,7 +1,18 @@
-<h1>List of Movies</h1>
+<div class="container">
 
-<ul>
-  <% @movies.each do |movie| %>
-    <li><%= movie.title %></li>
-  <% end %>
-</ul>
+  <div class="header">
+    <h1 class="text-center">List of Movies</h1>
+  </div>
+
+  <div>
+    <ul>
+      <% @lists.each do |list| %>
+        <li><%= link_to list.name, list_path(list) %></li>
+      <% end %>
+    </ul>
+  </div>
+  <div>
+    <%= link_to "New List", new_list_path, class: "btn btn-primary" %>
+  </div>
+
+</div>
