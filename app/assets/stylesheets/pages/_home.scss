@@ -4,12 +4,10 @@ body {
   min-height: 100vh;
 }
 
-footer {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  background-color: inherit;
-  color: rgb(0, 0, 0);
-  text-align: center;
+.flexbox{
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  justify-content: center;
+
 }
