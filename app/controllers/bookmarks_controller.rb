@@ -10,9 +10,10 @@ class BookmarksController < ApplicationController
     @bookmark = Bookmark.new(bookmark_params)
     @bookmark.list = @list
     if @bookmark.save
-      redirect_to list_path(@list)
+      redirect_to @list, notice: 'Bookmark was successfully added.'
     else
-      render :new, status: :unprocessable_entity
+      flash.now[:alert] = 'Failed to add bookmark. Please ensure a movie is selected and comment is provided.'
+      render "lists/show", status: :unprocessable_entity
     end
   end
 
