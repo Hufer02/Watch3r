@@ -3,10 +3,20 @@
   <h1> Create a bookmark !</h1>
 
   <%= simple_form_for [@list, @bookmark] do |f| %>
-    <%= f.association :movie %>
-    <%= f.input :comment, label: "Comment" %>
-    <%= f.input :movie_id, as: :hidden %>
-    <%= f.button :submit, class: "btn btn-primary" %>
+   <% if @bookmark.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@bookmark.errors.count, "error") %> prohibited this bookmark from being saved:</h2>
+      <ul>
+        <% @bookmark.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= f.input :movie_id, collection: Movie.all, label_method: :title, value_method: :id, prompt: 'Choose a movie', label: 'Movie' %>
+  <%= f.input :comment, as: :text, label: 'Comment' %>
+  <%= f.button :submit, 'Add Bookmark' %>
   <% end %>
 
 
