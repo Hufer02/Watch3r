@@ -5,7 +5,7 @@
 <div class= "flexbox">
   <% @lists.each do |list| %>
     <div class="card" style="width: 18rem;">
-      <img class="card-img-top" src="..." alt="Card image cap">
+      <img class="card-img-top" src= <%= list.image %>  alt="Card image cap">
       <div class="card-body">
         <h5 class="card-title"> <%= list.name %></h5>
         <%= link_to "Go to list", list_path(list) %>
