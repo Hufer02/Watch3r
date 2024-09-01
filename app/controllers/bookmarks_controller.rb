@@ -1,5 +1,5 @@
 class BookmarksController < ApplicationController
-  before_action :set_bookmark, only: [:destroy]
+  before_action :set_bookmark, only: [:destroy, :edit, :update]
   before_action :set_list, only: [:new, :create, :edit, :update]
 
   def new
@@ -24,7 +24,7 @@ class BookmarksController < ApplicationController
   def update
     @bookmark = Bookmark.find(params[:id])
     if @bookmark.update(bookmark_params)
-      redirect_to bookmarks_path
+      redirect_to @list, notice: 'Bookmark was successfully updated.'
     else
       render :edit
     end
@@ -32,7 +32,7 @@ class BookmarksController < ApplicationController
 
   def destroy
     @bookmark.destroy
-    redirect_to bookmarks_path, status: :see_other
+    redirect_to bookmark_path, status: :see_other
   end
 
   private
@@ -43,6 +43,10 @@ class BookmarksController < ApplicationController
 
   def set_bookmark
     @bookmark = Bookmark.find(params[:id])
+    unless @bookmark
+      flash[:alert] = "Bookmark not found."
+      redirect_to bookmarks_path
+    end
   end
 
   def set_list

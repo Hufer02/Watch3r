@@ -21,25 +21,24 @@
   </head>
 
   <body>
-  <% if user_signed_in? %>
+    <% if user_signed_in? %>
       <%= render "shared/navbar" %>
     <% else %>
       <span></span>
-  <% end %>
-    <div class="container">
-    <div>
+    <% end %>
+  <div class="container">
       <%= yield %>
       <%= render "shared/flashes" %>
-    </div>
-
-    </div>
-  <% if user_signed_in? %>
+  </div>
+    <% if user_signed_in? %>
       <%= render "shared/footer" %>
     <% else %>
       <span></span>
-  <% end %>
+    <% end %>
+
     <div id="space-for-navbar">
-          </div>
+    </div>
+
   </body>
 
 </html>
