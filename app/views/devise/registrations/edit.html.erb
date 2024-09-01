@@ -21,15 +21,21 @@
                 hint: "we need your current password to confirm your changes",
                 required: true,
                 input_html: { autocomplete: "current-password" } %>
+    <%= f.input :avatar, as: :file %>
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit, "Update" %>
+    <%= f.button :submit, "Update", class:"btn btn-primary mb-3" %>
   </div>
 <% end %>
 
 <h3>Cancel my account</h3>
-
-<div>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete %></div>
-
+<div class="card d-flex my-3">
+  <div class="card-body">
+    <div class="text-center">
+      <p class="my-2">Unhappy?</p>
+      <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete , class:"btn btn-danger"%>
+    </div>
+  </div>
+</div>
 <%= link_to "Back", :back %>

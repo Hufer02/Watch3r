@@ -22,9 +22,9 @@
 
   <body>
   <% if user_signed_in? %>
-    <%= render "shared/navbar" %>
+      <%= render "shared/navbar" %>
     <% else %>
-    <span></span>
+      <span></span>
   <% end %>
     <div class="container">
     <div>
@@ -33,7 +33,11 @@
     </div>
 
     </div>
-    <%= render "shared/footer" %>
+  <% if user_signed_in? %>
+      <%= render "shared/footer" %>
+    <% else %>
+      <span></span>
+  <% end %>
     <div id="space-for-navbar">
           </div>
   </body>
