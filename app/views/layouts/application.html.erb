@@ -26,19 +26,16 @@
     <% else %>
       <span></span>
     <% end %>
-  <div class="container">
-      <%= yield %>
+
+  <%= yield %>
+
       <%= render "shared/flashes" %>
-  </div>
+
     <% if user_signed_in? %>
       <%= render "shared/footer" %>
     <% else %>
       <span></span>
     <% end %>
-
-    <div id="space-for-navbar">
-    </div>
-
   </body>
 
 </html>
