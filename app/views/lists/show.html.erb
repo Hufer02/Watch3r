@@ -1,3 +1,4 @@
+<div class="container-show">
   <div class="title-list">
     <h2 class="text-center"><%= @list.name.humanize %></h2>
   </div>
@@ -45,9 +46,9 @@
                     </div>
                   </div>
             </div>
+
           </div>
 
-        </div>
       <% end %>
     <% end %>
   </div>
@@ -56,3 +57,4 @@
     <%= link_to "Add a movie", new_list_bookmark_path(@list), class: "btn btn-primary" %>
     <%= link_to "Back", lists_path, class: "btn btn-secondary" %>
   </div>
+</div>

@@ -1,0 +1,39 @@
+.infos-list{
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.movie-list{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-gap: 1rem;
+  margin: 10px auto;
+
+}
+
+.movie-card{
+  height: auto;
+  max-width: 200px;
+  position: relative;
+  background: wheat;
+  display: flex;
+  flex-direction: column;
+
+}
+
+.movie-card:hover{
+  box-shadow: 0 5px 20px #000000;
+  transition: ease 0.1s;
+}
+
+.movie-poster{
+  height: auto;
+  width: auto;
+}
+
+.movie-info{
+  padding: 10px;
+}
